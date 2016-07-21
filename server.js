@@ -143,7 +143,7 @@ app.post('/webhook', function(req, res) {
             client.set('lastFuelReading', body.fuel_level_percent);
         });
     } else {
-        console.log('Ignored');
+        console.log('IgnoredMRG');
     }
 
     res.status(200).end();
