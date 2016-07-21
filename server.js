@@ -35,7 +35,6 @@ app.get('/', function(req, res) {
             '<div class=\'outer\'>' +
             '<div class=\'middle\'>' +
             '<div class=\'inner\'>' +
-            '<h1>' + payload + '%</h1>' +
             '<h1>' + lastFuelReading + '%</h1>' +
             '<p>fuel remaining</p>' +
             '</div>' +
