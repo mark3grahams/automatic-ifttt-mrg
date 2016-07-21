@@ -90,7 +90,7 @@ app.post('/webhook', function(req, res) {
                             client.set('notificationSent', false);
                         }
 
-                        if (notificationSent == false) {
+                        if (notificationSent == true) {
                             console.log('Sending IFTTT event to Maker channel');
 
                             request.post('https://maker.ifttt.com/trigger/automatic-ifttt/with/key/' + process.env.IFTTT_SECRET_KEY, {
