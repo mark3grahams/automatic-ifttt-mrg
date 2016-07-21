@@ -78,7 +78,7 @@ app.post('/webhook', function(req, res) {
                             notificationSent = false;
                         }
                         
-                        notificationSent = (notificationSent == 'true');
+                        notificationSent = (notificationSent == 'false');
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
@@ -102,8 +102,8 @@ app.post('/webhook', function(req, res) {
                             }, function(err, response, body) {
                                 console.log('Succeeded');
                                 
-                                notificationSent = true;
-                                client.set('notificationSent', true);
+                                notificationSent = false;
+                                client.set('notificationSent', false);
                             });
                         } else {
                             console.log('Notification has already been sent');
@@ -125,7 +125,7 @@ app.post('/webhook', function(req, res) {
                             notificationSent = false;
                         }
                         
-                        notificationSent = (notificationSent == 'true');
+                        notificationSent = (notificationSent == 'false');
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
