@@ -97,7 +97,7 @@ app.post('/webhook', function(req, res) {
                                 form: {
                                     value1: body.fuel_level_percent,
                                     value2: payload.location.lat,
-                                    value3: payload.location.lon
+                                    value3: payload
                                 }
                             }, function(err, response, body) {
                                 console.log('Succeeded');
