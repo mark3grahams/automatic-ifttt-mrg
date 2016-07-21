@@ -57,7 +57,7 @@ app.post('/webhook', function(req, res) {
         console.log('Checking remaining fuel in vehicle');
 
         request.get({
-            uri: 'https://api.automatic.com/vehicle/' + payload.vehicle.id + '/',
+            uri: 'https://api.automatic.com/vehicle/C_22d84acc4d1bbf09/',
             headers: {
                 Authorization: 'Bearer ' + process.env.AUTOMATIC_ACCESS_TOKEN
             },
