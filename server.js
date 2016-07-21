@@ -128,7 +128,7 @@ app.post('/webhook', function(req, res) {
                         notificationSent = (notificationSent == 'false');
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
-                        console.log('notificationSent = ' + notificationSent);
+                        console.log('notificationSentMRG = ' + notificationSent);
                         
                         if (body.fuel_level_percent > lastFuelReading &&
                             body.fuel_level_percent > process.env.FUEL_PERCENT_THRESHOLD) {
