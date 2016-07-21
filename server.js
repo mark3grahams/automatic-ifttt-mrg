@@ -77,7 +77,7 @@ app.post('/webhook', function(req, res) {
                             notificationSent = false;
                         }
                         
-                        notificationSent = (notificationSent == 'false');
+                        notificationSent = (notificationSent == 'true');
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSent = ' + notificationSent);
@@ -124,7 +124,7 @@ app.post('/webhook', function(req, res) {
                             notificationSent = false;
                         }
                         
-                        notificationSent = (notificationSent == 'false');
+                        notificationSent = (notificationSent == 'true');
                         
                         console.log('lastFuelReading = ' + lastFuelReading);
                         console.log('notificationSentMRG = ' + notificationSent);
