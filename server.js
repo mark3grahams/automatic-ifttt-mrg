@@ -43,8 +43,6 @@ app.get('/', function(req, res) {
             '<div class=\'inner\'>' +
             '<h1>' + lastFuelReading + '%</h1>' +
             '<p>fuel remaining</p>' +
-            '<h1>' + lastFuelReadingPlus10 + '%</h1>' +
-            '<p>fuel remaining plus 10</p>' +
             '</div>' +
             '</div>' +
             '</div>' +
