@@ -18,7 +18,7 @@ app.get('/', function(req, res) {
         if (lastFuelReading == null) {
             lastFuelReading = 100.0;
         }
-    client.get('lastFuelReadingPlus10', function(err, lastFuelReadingPlus10) {
+    client.get('lastFuelReadingPlus10', function(err, lastFuelReadingPlus10) 
         if (lastFuelReadingPlus10 == null) {
             lastFuelReadingPlus10 = 100.0;
         }
