@@ -10,12 +10,18 @@ app.use(bodyParser.json());
 var client = redis.createClient(process.env.REDIS_URL);
 
 var lastFuelReading = 100.0;
+var lastFuelReadingPlus10 = 100.0;
 var notificationSent = false;
 
 app.get('/', function(req, res) {
     client.get('lastFuelReading', function(err, lastFuelReading) {
         if (lastFuelReading == null) {
             lastFuelReading = 100.0;
+        }
+        
+    client.get('lastFuelReadingPlus10', function(err, lastFuelReadingPlus10) {
+        if (lastFuelReadingPlus10 == null) {
+            lastFuelReadingPlus10 = 100.0;
         }
         
         var result = '<!DOCTYPE html>' +
@@ -36,6 +42,8 @@ app.get('/', function(req, res) {
             '<div class=\'middle\'>' +
             '<div class=\'inner\'>' +
             '<h1>' + lastFuelReading + '%</h1>' +
+            '<p>fuel remaining</p>' +
+            '<h1>' + lastFuelReadingPlus10 + '%</h1>' +
             '<p>fuel remaining</p>' +
             '</div>' +
             '</div>' +
