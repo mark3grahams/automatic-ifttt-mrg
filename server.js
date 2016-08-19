@@ -120,10 +120,10 @@ app.post('/webhook', function(req, res) {
             } else {
                 console.log('Fuel level at ' + body.fuel_level_percent + '%, above threshold');
                 
-                client.get('lastFuelReading', function(err, lastFuelReading) {
-                    if (lastFuelReading == null) {
+                client.get('lastFuelReadingPlus10', function(err, lastFuelReadingPlus10) {
+                    if (lastFuelReadingPlus10 == null) {
                         console.log ('Unable to retrieve lastFuelReading.');
-                        lastFuelReading = 100.0;
+                        lastFuelReadingPlus10 = 100.0;
                     }
 
                     client.get('notificationSent', function(err, notificationSent) {
@@ -134,10 +134,10 @@ app.post('/webhook', function(req, res) {
                         
                         notificationSent = (notificationSent == 'true');
                         
-                        console.log('lastFuelReading = ' + lastFuelReading);
+                        console.log('lastFuelReadingPlus10 = ' + lastFuelReadingPlus10);
                         console.log('notificationSentMRG = ' + notificationSent);
                         
-                        if (body.fuel_level_percent > lastFuelReading &&
+                        if (body.fuel_level_percent > lastFuelReadingPlus10 &&
                             body.fuel_level_percent > process.env.FUEL_PERCENT_THRESHOLD) {
                             console.log('Vehicle has been refuelled, resetting notification flag');
                             notificationSent = false;
