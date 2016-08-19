@@ -139,7 +139,7 @@ app.post('/webhook', function(req, res) {
                         
                         if (body.fuel_level_percent > lastFuelReadingPlus10 &&
                             body.fuel_level_percent > process.env.FUEL_PERCENT_THRESHOLD) {
-                            console.log('Vehicle has been refuelled, resetting notification flag');
+                            console.log('Vehicle has been refuelled, fuel level increased by 10% or greater');
                             notificationSent = false;
                             client.set('notificationSent', false);
                         }
@@ -148,7 +148,7 @@ app.post('/webhook', function(req, res) {
             }
 
             client.set('lastFuelReading', body.fuel_level_percent);
-            client.set('lastFuelReadingPlus10', body.fuel_level_percent+10);
+            client.set('lastFuelReadingPlus10', 10);
         });
     } else {
         console.log('IgnoredMRG');
