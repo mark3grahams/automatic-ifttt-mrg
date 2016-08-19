@@ -142,6 +142,20 @@ app.post('/webhook', function(req, res) {
                             console.log('Vehicle has been refuelled, fuel level increased by 10% or greater');
                             notificationSent = false;
                             client.set('notificationSent', false);
+                            console.log('Sending IFTTT event to Maker channel');
+
+                            request.post('https://maker.ifttt.com/trigger/automatic-fueled/with/key/' + process.env.IFTTT_SECRET_KEY, {
+                                form: {
+                                    value1: body.fuel_level_percent,
+                                    value2: body.updated_at,
+                                    value3: payload.location
+                                }
+                            }, function(err, response, body) {
+                                console.log('Succeeded');
+                                
+                                notificationSent = false;
+                                client.set('notificationSent', false);
+                            });
                         }
                     });
                 });
